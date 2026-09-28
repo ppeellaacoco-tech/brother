@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa: #ff668d;
+    --rosa-suave: #ffb0c4;
+    --fondo: #08070a;
+    --blanco: #f7f3f5;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 16px;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, #3a1d2b 0%, transparent 42%),
+        radial-gradient(circle at 100% 100%, #261421 0%, transparent 38%),
+        var(--fondo);
+    color: var(--blanco);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 100% 4px;
+    opacity: .25;
+}
+
+.inicio {
+    width: min(650px, 100%);
+    text-align: center;
+    animation: aparecer 1.2s ease both;
+}
+
+.sobre {
+    font-size: clamp(70px, 14vw, 110px);
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 22px rgba(255,102,141,.25));
+    animation: flotar 2.4s ease-in-out infinite;
+}
+
+.mini {
+    color: #bdb2b8;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.inicio h1 {
+    margin: 14px 0 10px;
+    font-size: clamp(38px, 8vw, 64px);
+    font-weight: 500;
+}
+
+.subtitulo {
+    color: #d6cbd0;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    padding: 15px 29px;
+    background: var(--rosa);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 35px rgba(255,102,141,.22);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 45px rgba(255,102,141,.35);
+}
+
+.carta {
+    width: min(820px, 100%);
+    padding: clamp(20px, 5vw, 42px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 28px;
+    background: rgba(18, 15, 19, .82);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 30px 100px rgba(0,0,0,.55);
+    animation: cartaAparece 1.2s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.oculto {
+    display: none;
+}
+
+.foto-wrap {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,.35);
+}
+
+.foto-wrap img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.contenido {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.saludo {
+    color: var(--rosa-suave);
+    font-size: clamp(30px, 6vw, 44px);
+    margin-bottom: 25px;
+}
+
+#mensaje {
+    white-space: pre-line;
+    font-size: clamp(17px, 2.3vw, 20px);
+    line-height: 1.9;
+    color: #eee8eb;
+    min-height: 250px;
+}
+
+.firma {
+    margin-top: 35px;
+    text-align: right;
+    color: var(--rosa-suave);
+    font-size: 22px;
+    line-height: 1.6;
+    animation: aparecer .8s ease both;
+}
+
+.firma strong {
+    display: block;
+    font-weight: normal;
+}
+
+.oculto-firma {
+    display: none;
+}
+
+.player {
+    margin-top: 34px;
+    padding: 13px 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.055);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #d9d1d5;
+}
+
+.player a {
+    margin-left: auto;
+    color: var(--rosa-suave);
+    text-decoration: none;
+}
+
+.youtube {
+    width: 100%;
+    height: 0;
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.corazon {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 20;
+    animation: subir 5.5s linear forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cartaAparece {
+    from { opacity: 0; transform: translateY(20px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes subir {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: .8; }
+    100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    body { padding: 15px 10px; }
+    .carta { padding: 16px; border-radius: 22px; }
+    .player { flex-wrap: wrap; }
+    .player a { margin-left: 0; width: 100%; }
+}

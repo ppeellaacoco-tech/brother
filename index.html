@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi hermano ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="particles"></div>
+
+    <section id="inicio" class="inicio">
+        <div class="sobre">💌</div>
+        <p class="mini">Una pequeña sorpresa para vos</p>
+        <h1>Para mi Brooo</h1>
+        <p class="subtitulo">Hay algo que quiero decirte...</p>
+        <button id="abrirCarta">Abrir carta ❤️</button>
+    </section>
+
+    <main id="carta" class="carta oculto">
+        <div class="foto-wrap">
+            <img src="IMG_2889.jpeg" alt="Los dos hermanos">
+        </div>
+
+        <div class="contenido">
+            <p class="saludo">Hola Brooo...</p>
+            <div id="mensaje" aria-live="polite"></div>
+
+            <div id="firma" class="firma oculto-firma">
+                <span>Te quiero.</span>
+                <strong>Tu hermano ❤️</strong>
+            </div>
+        </div>
+
+        <div class="player">
+            <span>🎵</span>
+            <span>Hey Brother — Avicii</span>
+            <a href="https://www.youtube.com/watch?v=YxIiPLVR6NA" target="_blank" rel="noopener noreferrer">Abrir en YouTube</a>
+        </div>
+
+        <iframe
+            id="youtubePlayer"
+            class="youtube"
+            title="Hey Brother — Avicii"
+            src=""
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
